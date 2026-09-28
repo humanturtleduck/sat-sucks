@@ -1,0 +1,460 @@
+{
+  "source": "questionbank-export-2026-9-27.pdf",
+  "count": 10,
+  "questions": [
+    {
+      "id": "a68fd3e7",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Inferences",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "Many of William Shakespeare’s tragedies address broad themes that still appeal to today’s audiences. For instance, Romeo and Juliet, which is set in the Italy of Shakespeare’s time, tackles the themes of parents versus children and love versus hate, and the play continues to be read and produced widely around the world. But understanding Shakespeare’s so-called history plays can require a knowledge of several centuries of English history. Consequently, ______"
+        }
+      ],
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "many theatergoers and readers today are likely to find Shakespeare’s history plays less engaging than the tragedies."
+        },
+        {
+          "label": "B",
+          "text": "some of Shakespeare’s tragedies are more relevant to today’s audiences than twentieth-century plays."
+        },
+        {
+          "label": "C",
+          "text": "Romeo and Juliet is the most thematically accessible of all Shakespeare’s tragedies."
+        },
+        {
+          "label": "D",
+          "text": "experts in English history tend to prefer Shakespeare’s history plays to his other works."
+        }
+      ],
+      "correct": "A",
+      "rationale": "Choice A is the best answer because it most logically completes the text’s discussion of the relative appeal of different kinds of plays by Shakespeare to today’s audiences. According to the text, Shakespeare’s tragedies address broad themes that continue to appeal to today’s audiences. Indeed, the text suggests that these themes are timeless, as illustrated by the example of Romeo and Juliet, which the text states is still read and widely performed despite being set in the Italy of Shakespeare’s time. In contrast, the text indicates that audiences and readers may need to be familiar with several centuries of English history in order to understand Shakespeare’s history plays. Because many theatergoers and readers are unlikely to possess such extensive historical knowledge, it follows that they are likely to find Shakespeare’s history plays less engaging than his more accessible tragedies.\n\nChoice B is incorrect because the text never introduces a comparison between Shakespeare’s tragedies and twentieth-century plays, only between Shakespeare’s tragedies and his history plays. Since twentieth-century plays aren’t mentioned, there’s no basis in the text for the idea that some of Shakespeare’s tragedies are more relevant than twentieth-century plays to today’s audiences. Choice C is incorrect. Although the text indicates that Romeo and Juliet is thematically accessible to today’s audiences, it doesn’t suggest that Romeo and Juliet is more accessible than Shakespeare’s other tragedies. Rather, the text presents Romeo and Juliet as an example to support the idea that Shakespeare’s tragedies hold continued appeal for today’s readers and theatergoers. Choice D is incorrect. Although experts in English history would likely possess the knowledge needed to understand Shakespeare’s history plays, the text never mentions such experts or suggests that they would enjoy the history plays more than Shakespeare’s other works.",
+      "explanations": {
+        "A": "Choice A is the best answer because it most logically completes the text’s discussion of the relative appeal of different kinds of plays by Shakespeare to today’s audiences. According to the text, Shakespeare’s tragedies address broad themes that continue to appeal to today’s audiences. Indeed, the text suggests that these themes are timeless, as illustrated by the example of Romeo and Juliet, which the text states is still read and widely performed despite being set in the Italy of Shakespeare’s time. In contrast, the text indicates that audiences and readers may need to be familiar with several centuries of English history in order to understand Shakespeare’s history plays. Because many theatergoers and readers are unlikely to possess such extensive historical knowledge, it follows that they are likely to find Shakespeare’s history plays less engaging than his more accessible tragedies.",
+        "B": "Choice B is incorrect because the text never introduces a comparison between Shakespeare’s tragedies and twentieth-century plays, only between Shakespeare’s tragedies and his history plays. Since twentieth-century plays aren’t mentioned, there’s no basis in the text for the idea that some of Shakespeare’s tragedies are more relevant than twentieth-century plays to today’s audiences.",
+        "C": "Choice C is incorrect. Although the text indicates that Romeo and Juliet is thematically accessible to today’s audiences, it doesn’t suggest that Romeo and Juliet is more accessible than Shakespeare’s other tragedies. Rather, the text presents Romeo and Juliet as an example to support the idea that Shakespeare’s tragedies hold continued appeal for today’s readers and theatergoers.",
+        "D": "Choice D is incorrect. Although experts in English history would likely possess the knowledge needed to understand Shakespeare’s history plays, the text never mentions such experts or suggests that they would enjoy the history plays more than Shakespeare’s other works."
+      },
+      "warnings": []
+    },
+    {
+      "id": "bc7b1a04",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Command of Evidence",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "table",
+          "caption": "Three Studies' Estimated Average Velocity of LMC",
+          "header": [
+            "Researchers",
+            "Study year",
+            "Estimated average velocity"
+          ],
+          "rows": [
+            [
+              "Murai and Fujimoto",
+              "1980",
+              "344 km/s"
+            ],
+            [
+              "Kallivayalil and colleagues",
+              "2006",
+              "378 km/s"
+            ],
+            [
+              "Gardiner and colleagues",
+              "1994",
+              "297 km/s"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "In 2006, Nitya Kallivayalil and colleagues calculated the most accurate estimate yet of the average velocity (in kilometers per second) of the Large Magellanic Cloud (LMC) galaxy. Before the 2006 study, estimates of the average velocity were low enough for the LMC to maintain an orbit around the Milky Way galaxy, but according to an analysis by Gurtina Besla and colleagues, the estimated velocity from the 2006 study is too high for the LMC to maintain such an orbit. Therefore, if Besla and colleagues are correct, the maximum average velocity for the LMC that would allow it to maintain orbit around the Milky Way is likely ______"
+        }
+      ],
+      "prompt": "Which choice most effectively uses data from the table to complete the statement?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "above 344 km/s but below 378 km/s."
+        },
+        {
+          "label": "B",
+          "text": "above 297 km/s but below 344 km/s."
+        },
+        {
+          "label": "C",
+          "text": "above 378 km/s."
+        },
+        {
+          "label": "D",
+          "text": "below 297 km/s."
+        }
+      ],
+      "correct": "A",
+      "rationale": "Choice A is the best answer because it uses data from the table to give the range of velocities for the LMC from the 1980 value (344 km/s) to the 2006 value (378 km/s), thereby effectively completing the text. The text indicates that before 2006, all the estimated velocities of the LMC were within the range necessary to maintain orbit around the Milky Way galaxy. It then indicates that, according to Besla and colleagues, the 2006 estimate of 378 km/s is too high to maintain that orbit. This strongly implies that if the 1980 value (344 km/s) is below the orbital threshold, and if Besla and colleagues are correct that the 2006 value (378 km/s) is above that threshold, the maximum orbital velocity for the LMC must be somewhere in the range from above 344 km/s to below 378 km/s.\n\nChoice B is incorrect. The text indicates that the 2006 velocity estimate for the LMC (378 km/s) was the first estimate that exceeded the velocity needed to maintain orbit around the Milky Way. Thus, the 1980 estimate of 344 km/s and the 1994 estimate of 297 km/s must both be below the maximum possible orbital velocity for the LMC. Choice C is incorrect. The text states that Besla and colleagues’ analysis found that the velocity from the 2006 study (378 km/s) was too high for the LMC to maintain orbit around the Milky Way. Therefore, if a velocity of 378 km/s is too high, an even higher velocity will also be too high. Choice D is incorrect. The text indicates that the 2006 velocity estimate for the LMC (378 km/s) was the first to exceed the velocity range required to maintain orbit around the Milky Way. Thus, the 1994 estimate of 297 km/s must be below the maximum possible orbital velocity for the LMC.",
+      "explanations": {
+        "A": "Choice A is the best answer because it uses data from the table to give the range of velocities for the LMC from the 1980 value (344 km/s) to the 2006 value (378 km/s), thereby effectively completing the text. The text indicates that before 2006, all the estimated velocities of the LMC were within the range necessary to maintain orbit around the Milky Way galaxy. It then indicates that, according to Besla and colleagues, the 2006 estimate of 378 km/s is too high to maintain that orbit. This strongly implies that if the 1980 value (344 km/s) is below the orbital threshold, and if Besla and colleagues are correct that the 2006 value (378 km/s) is above that threshold, the maximum orbital velocity for the LMC must be somewhere in the range from above 344 km/s to below 378 km/s.",
+        "B": "Choice B is incorrect. The text indicates that the 2006 velocity estimate for the LMC (378 km/s) was the first estimate that exceeded the velocity needed to maintain orbit around the Milky Way. Thus, the 1980 estimate of 344 km/s and the 1994 estimate of 297 km/s must both be below the maximum possible orbital velocity for the LMC.",
+        "C": "Choice C is incorrect. The text states that Besla and colleagues’ analysis found that the velocity from the 2006 study (378 km/s) was too high for the LMC to maintain orbit around the Milky Way. Therefore, if a velocity of 378 km/s is too high, an even higher velocity will also be too high.",
+        "D": "Choice D is incorrect. The text indicates that the 2006 velocity estimate for the LMC (378 km/s) was the first to exceed the velocity range required to maintain orbit around the Milky Way. Thus, the 1994 estimate of 297 km/s must be below the maximum possible orbital velocity for the LMC."
+      },
+      "warnings": []
+    },
+    {
+      "id": "3d91c973",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Command of Evidence",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "Mosasaurs were large marine reptiles that lived in the Late Cretaceous period, approximately 100 million to 66 million years ago. Celina Suarez, Alberto Pérez-Huerta, and T. Lynn Harrell Jr. examined oxygen-18 isotopes in mosasaur tooth enamel in order to calculate likely mosasaur body temperatures and determined that mosasaurs were endothermic—that is, they used internal metabolic processes to maintain a stable body temperature in a variety of ambient temperatures. Suarez, Pérez-Huerta, and Harrell claim that endothermy would have enabled mosasaurs to include relatively cold polar waters in their range."
+        }
+      ],
+      "prompt": "Which finding, if true, would most directly support Suarez, Pérez-Huerta, and Harrell’s claim?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Mosasaurs’ likely body temperatures are easier to determine from tooth enamel oxygen-18 isotope data than the body temperatures of nonendothermic Late Cretaceous marine reptiles are."
+        },
+        {
+          "label": "B",
+          "text": "Fossils of both mosasaurs and nonendothermic marine reptiles have been found in roughly equal numbers in regions known to be near the poles during the Late Cretaceous, though in lower concentrations than elsewhere."
+        },
+        {
+          "label": "C",
+          "text": "Several mosasaur fossils have been found in regions known to be near the poles during the Late Cretaceous, while relatively few fossils of nonendothermic marine reptiles have been found in those locations."
+        },
+        {
+          "label": "D",
+          "text": "During the Late Cretaceous, seawater temperatures were likely higher throughout mosasaurs’ range, including near the poles, than seawater temperatures at those same latitudes are today."
+        }
+      ],
+      "correct": "C",
+      "rationale": "Choice C is the best answer because it presents the finding that, if true, would best support Suarez, Pérez-Huerta, and Harrell’s claim about mosasaurs. The text states that Suarez, Pérez-Huerta, and Harrell’s research on mosasaur tooth enamel led them to conclude that mosasaurs were endothermic, which means that they could live in waters at many different temperatures and still maintain a stable body temperature. The researchers claim that endothermy enabled mosasaurs to live in relatively cold waters near the poles. If several mosasaur fossils have been found in areas that were near the poles during the period when mosasaurs were alive and fossils of nonendothermic marine reptiles are rare in such locations, that would support the researchers’ claim: it would show that mosasaurs inhabited polar waters but nonendothermic marine mammals tended not to, suggesting that endothermy may have been the characteristic that enabled mosasaurs to include polar waters in their range.\n\nChoice A is incorrect because finding that it’s easier to determine mosasaur body temperatures from tooth enamel data than it is to determine nonendothermic reptile body temperatures wouldn’t support the researchers’ claim. Whether one research process is more difficult than another indicates nothing about the results of those processes and therefore is irrelevant to the issue of where mosasaurs lived and what enabled them to live in those locations. Choice B is incorrect because finding roughly equal numbers of mosasaur and nonendothermic marine reptile fossils in areas that were near the poles in the Late Cretaceous would suggest that endothermy didn’t give mosasaurs any particular advantage when it came to expanding their range to include relatively cold polar waters, thereby weakening the researchers’ claim rather than supporting it. Choice D is incorrect because finding that the temperature of seawater in the Late Cretaceous was warmer than seawater today wouldn’t weaken the researchers’ claim. Seawater in the Late Cretaceous could have been warmer than seawater today but still cold enough for endothermy to be advantageous to mosasaurs, so this finding wouldn’t provide enough information to either support or weaken the researchers’ claim.",
+      "explanations": {
+        "C": "Choice C is the best answer because it presents the finding that, if true, would best support Suarez, Pérez-Huerta, and Harrell’s claim about mosasaurs. The text states that Suarez, Pérez-Huerta, and Harrell’s research on mosasaur tooth enamel led them to conclude that mosasaurs were endothermic, which means that they could live in waters at many different temperatures and still maintain a stable body temperature. The researchers claim that endothermy enabled mosasaurs to live in relatively cold waters near the poles. If several mosasaur fossils have been found in areas that were near the poles during the period when mosasaurs were alive and fossils of nonendothermic marine reptiles are rare in such locations, that would support the researchers’ claim: it would show that mosasaurs inhabited polar waters but nonendothermic marine mammals tended not to, suggesting that endothermy may have been the characteristic that enabled mosasaurs to include polar waters in their range.",
+        "A": "Choice A is incorrect because finding that it’s easier to determine mosasaur body temperatures from tooth enamel data than it is to determine nonendothermic reptile body temperatures wouldn’t support the researchers’ claim. Whether one research process is more difficult than another indicates nothing about the results of those processes and therefore is irrelevant to the issue of where mosasaurs lived and what enabled them to live in those locations.",
+        "B": "Choice B is incorrect because finding roughly equal numbers of mosasaur and nonendothermic marine reptile fossils in areas that were near the poles in the Late Cretaceous would suggest that endothermy didn’t give mosasaurs any particular advantage when it came to expanding their range to include relatively cold polar waters, thereby weakening the researchers’ claim rather than supporting it.",
+        "D": "Choice D is incorrect because finding that the temperature of seawater in the Late Cretaceous was warmer than seawater today wouldn’t weaken the researchers’ claim. Seawater in the Late Cretaceous could have been warmer than seawater today but still cold enough for endothermy to be advantageous to mosasaurs, so this finding wouldn’t provide enough information to either support or weaken the researchers’ claim."
+      },
+      "warnings": []
+    },
+    {
+      "id": "4b3d6062",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Inferences",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "The Mammillaria cactus M. boolii occurs naturally only in the state of Sonora in Mexico, and the smallness of its range makes it especially vulnerable to extinction. The traditional single-species approach to conservation emphasizes the need to focus on individual species most at risk, like M. boolii, but recently, conservationists have argued that an ecosystem-based approach that incorporates the many interactions between the climate, terrain, and various species of a given geographical area may lead to better outcomes for all the species in a given location. If this view is correct, the single-species approach to the conservation of M. boolii could thus ______"
+        }
+      ],
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "lead to a better understanding of how the distribution of Mammillaria species throughout Mexico has affected their survival."
+        },
+        {
+          "label": "B",
+          "text": "allow conservationists to better consider how climatic changes affecting Sonora may reduce the number of species competing with M. boolii."
+        },
+        {
+          "label": "C",
+          "text": "erroneously shift the focus of conservation efforts away from M. boolii itself."
+        },
+        {
+          "label": "D",
+          "text": "fail to consider the ways in which the survival of M. boolii may be influenced by changes in the populations of other species that inhabit Sonora."
+        }
+      ],
+      "correct": "D",
+      "rationale": "Choice D is the best answer because it most logically completes the text’s discussion of conservation approaches for the Mammillaria cactus M. boolii. The text establishes that M. boolii only grows naturally in the state of Sonora in Mexico, which makes it particularly vulnerable to extinction. The text then contrasts two approaches to conservation: the traditional single-species approach that individually focuses on at-risk species and a newer ecosystem-based approach that considers the interactions between climate, terrain, and various species in a geographical area. According to the text, conservationists have recently argued that this ecosystem-based approach may lead to better outcomes for all species in a location. If this ecosystem view is correct, then the single-species approach to conserving M. boolii would likely fail to consider how the cactus’s survival depends on its interactions with other species in Sonora’s ecosystem.\n\nChoice A is incorrect because the text doesn’t address the distribution of Mammillaria species besides M. boolii throughout Mexico or discuss how that distribution affects survival. The text focuses specifically on M. boolii in Sonora and different approaches to its conservation. Choice B is incorrect because the text doesn’t suggest that climatic changes in Sonora would reduce competition for M. boolii or that conservation efforts are focused on understanding this specific dynamic. In fact, the text implies that an ecosystem-based approach would consider climate among many other factors but doesn’t specify how climatic changes might affect competition between species. Choice C is incorrect because the text doesn’t suggest that the single-species approach would shift the focus of conservation efforts away from M. boolii itself—rather, it suggests that this approach might be too narrowly focused on M. boolii alone without considering the broader ecosystem-related factors that affect its survival.",
+      "explanations": {
+        "D": "Choice D is the best answer because it most logically completes the text’s discussion of conservation approaches for the Mammillaria cactus M. boolii. The text establishes that M. boolii only grows naturally in the state of Sonora in Mexico, which makes it particularly vulnerable to extinction. The text then contrasts two approaches to conservation: the traditional single-species approach that individually focuses on at-risk species and a newer ecosystem-based approach that considers the interactions between climate, terrain, and various species in a geographical area. According to the text, conservationists have recently argued that this ecosystem-based approach may lead to better outcomes for all species in a location. If this ecosystem view is correct, then the single-species approach to conserving M. boolii would likely fail to consider how the cactus’s survival depends on its interactions with other species in Sonora’s ecosystem.",
+        "A": "Choice A is incorrect because the text doesn’t address the distribution of Mammillaria species besides M. boolii throughout Mexico or discuss how that distribution affects survival. The text focuses specifically on M. boolii in Sonora and different approaches to its conservation.",
+        "B": "Choice B is incorrect because the text doesn’t suggest that climatic changes in Sonora would reduce competition for M. boolii or that conservation efforts are focused on understanding this specific dynamic. In fact, the text implies that an ecosystem-based approach would consider climate among many other factors but doesn’t specify how climatic changes might affect competition between species.",
+        "C": "Choice C is incorrect because the text doesn’t suggest that the single-species approach would shift the focus of conservation efforts away from M. boolii itself—rather, it suggests that this approach might be too narrowly focused on M. boolii alone without considering the broader ecosystem-related factors that affect its survival."
+      },
+      "warnings": []
+    },
+    {
+      "id": "7575e417",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Command of Evidence",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "Economists have demonstrated that herding—in which individuals converge on the same action by imitating the economic decisions of one or more peers—occurs among investors. Investigating whether herding also occurs among nations in matters of economic policy, Maru Etta-Nkwelle examined changes in the foreign currency reserves of emerging economies in various world regions in the years following the widespread financial crisis of 1997. Etta-Nkwelle posited that herding would manifest in regional peer countries converging on the same foreign currency accumulation rate regardless of each country’s observable circumstances. She found that Asian countries showed evidence of herding but African countries did not."
+        }
+      ],
+      "prompt": "Based on the text, which finding, if true, would best account for the discrepancy Etta-Nkwelle observed?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "The majority of the currency held in reserves by the African countries was foreign currency, whereas the majority of the currency held in reserves by the Asian countries was domestic currency."
+        },
+        {
+          "label": "B",
+          "text": "Most of the African countries belonged to international economic unions that set individual foreign-currency accumulation policies for each member, whereas the Asian countries were largely free to set their own policies."
+        },
+        {
+          "label": "C",
+          "text": "The 1997 financial crisis resulted in immediate declines in many of the African countries’ foreign currency reserves, whereas the crisis had few short-term effects on the foreign currency reserves of most of the Asian countries."
+        },
+        {
+          "label": "D",
+          "text": "The African countries tended to accumulate a variety of foreign currencies for their reserves, whereas the Asian countries tended to favor a single foreign currency for their reserves."
+        }
+      ],
+      "correct": "B",
+      "rationale": "Choice B is the best answer because it presents a finding that, if true, would best account for the discrepancy Etta-Nkwelle observed: Asian countries showed evidence of herding (converging on the same foreign currency accumulation rate as their regional peers), while African countries did not. The text defines herding as individuals converging on the same action by imitating their peers, which implies that the individuals choose to do so rather than being compelled to follow a particular course of action. This choice indicates that most of the African countries belonged to economic unions that dictated such monetary policies, whereas Asian countries were free to choose, and the similarity among the Asian countries suggests that herding can account for that similarity. The finding thus identifies a relevant difference between the two regions that accounts for the discrepancy.\n\nChoice A is incorrect. Although this choice is related to reserves of foreign currency, the fact that African and Asian countries had different mixes of foreign and domestic currency reserves does not address the rate of foreign currency accumulation or whether herding is a contributing factor determining the rate of accumulation. Choice C is incorrect. This choice does not address currency accumulation. And although it describes differences in the currency reserves of African and Asian countries shortly after the 1997 financial crisis, it does not address the rate of foreign currency accumulation nor how similar the nations were in this regard to their neighboring countries. Choice D is incorrect. Although this choice discusses the variety of foreign currencies accumulated by African countries as compared with Asian countries, it does not discuss the rate of foreign currency accumulation nor whether herding is a factor determining the rate of accumulation.",
+      "explanations": {
+        "B": "Choice B is the best answer because it presents a finding that, if true, would best account for the discrepancy Etta-Nkwelle observed: Asian countries showed evidence of herding (converging on the same foreign currency accumulation rate as their regional peers), while African countries did not. The text defines herding as individuals converging on the same action by imitating their peers, which implies that the individuals choose to do so rather than being compelled to follow a particular course of action. This choice indicates that most of the African countries belonged to economic unions that dictated such monetary policies, whereas Asian countries were free to choose, and the similarity among the Asian countries suggests that herding can account for that similarity. The finding thus identifies a relevant difference between the two regions that accounts for the discrepancy.",
+        "A": "Choice A is incorrect. Although this choice is related to reserves of foreign currency, the fact that African and Asian countries had different mixes of foreign and domestic currency reserves does not address the rate of foreign currency accumulation or whether herding is a contributing factor determining the rate of accumulation.",
+        "C": "Choice C is incorrect. This choice does not address currency accumulation. And although it describes differences in the currency reserves of African and Asian countries shortly after the 1997 financial crisis, it does not address the rate of foreign currency accumulation nor how similar the nations were in this regard to their neighboring countries.",
+        "D": "Choice D is incorrect. Although this choice discusses the variety of foreign currencies accumulated by African countries as compared with Asian countries, it does not discuss the rate of foreign currency accumulation nor whether herding is a factor determining the rate of accumulation."
+      },
+      "warnings": []
+    },
+    {
+      "id": "58e9e497",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Inferences",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "In the early nineteenth century, some Euro-American farmers in the northeastern United States used agricultural techniques developed by the Haudenosaunee (Iroquois) people centuries earlier, but it seems that few of those farmers had actually seen Haudenosaunee farms firsthand. Barring the possibility of several farmers of the same era independently developing techniques that the Haudenosaunee people had already invented, these facts most strongly suggest that ______"
+        }
+      ],
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "those farmers learned the techniques from other people who were more directly influenced by Haudenosaunee practices."
+        },
+        {
+          "label": "B",
+          "text": "the crops typically cultivated by Euro-American farmers in the northeastern United States were not well suited to Haudenosaunee farming techniques."
+        },
+        {
+          "label": "C",
+          "text": "Haudenosaunee farming techniques were widely used in regions outside the northeastern United States."
+        },
+        {
+          "label": "D",
+          "text": "Euro-American farmers only began to recognize the benefits of Haudenosaunee farming techniques late in the nineteenth century."
+        }
+      ],
+      "correct": "A",
+      "rationale": "Choice A is the best answer because it most logically completes the text’s discussion of Euro-American farmers’ use of Haudenosaunee agricultural techniques. According to the text, some Euro-American farmers were using these techniques in the early nineteenth century despite few of the farmers having seen Haudenosaunee farms. One explanation for these facts might be that the farmers developed techniques on their own that already had been invented centuries earlier by the Haudenosaunee people, but the text explicitly bars, or rules out, this explanation. If Euro-American farmers didn’t learn these techniques from direct observation of Haudenosaunee practices and didn’t invent the techniques independently, then the most logical explanation is that they learned the techniques from other people who were more directly influenced by Haudenosaunee practices than the farmers themselves were. Once they learned about Haudenosaunee agricultural practices, Euro-American farmers could then apply those practices to their own farming.\n\nChoice B is incorrect because the fact that some Euro-American farmers in the northeastern United States were using Haudenosaunee techniques suggests that the techniques were likely useful for the crops the farmers raised, not that the crops typically cultivated by the farmers were not well suited to Haudenosaunee farming techniques. If the farmers’ crops were ill suited to the techniques, it’s unlikely that the farmers would have used those techniques. Choice C is incorrect because the text indicates only that Haudenosaunee agricultural techniques were used by Euro-American farmers in the northeastern United States, not that these techniques were widely used outside this region. Choice D is incorrect because the text states that some Euro-American farmers were using Haudenosaunee farming techniques early in the nineteenth century. This suggests that some Euro-American farmers were beginning to recognize the benefits of these techniques near the start of the century, not that such farmers only began to recognize the benefits of the techniques much later.",
+      "explanations": {
+        "A": "Choice A is the best answer because it most logically completes the text’s discussion of Euro-American farmers’ use of Haudenosaunee agricultural techniques. According to the text, some Euro-American farmers were using these techniques in the early nineteenth century despite few of the farmers having seen Haudenosaunee farms. One explanation for these facts might be that the farmers developed techniques on their own that already had been invented centuries earlier by the Haudenosaunee people, but the text explicitly bars, or rules out, this explanation. If Euro-American farmers didn’t learn these techniques from direct observation of Haudenosaunee practices and didn’t invent the techniques independently, then the most logical explanation is that they learned the techniques from other people who were more directly influenced by Haudenosaunee practices than the farmers themselves were. Once they learned about Haudenosaunee agricultural practices, Euro-American farmers could then apply those practices to their own farming.",
+        "B": "Choice B is incorrect because the fact that some Euro-American farmers in the northeastern United States were using Haudenosaunee techniques suggests that the techniques were likely useful for the crops the farmers raised, not that the crops typically cultivated by the farmers were not well suited to Haudenosaunee farming techniques. If the farmers’ crops were ill suited to the techniques, it’s unlikely that the farmers would have used those techniques.",
+        "C": "Choice C is incorrect because the text indicates only that Haudenosaunee agricultural techniques were used by Euro-American farmers in the northeastern United States, not that these techniques were widely used outside this region.",
+        "D": "Choice D is incorrect because the text states that some Euro-American farmers were using Haudenosaunee farming techniques early in the nineteenth century. This suggests that some Euro-American farmers were beginning to recognize the benefits of these techniques near the start of the century, not that such farmers only began to recognize the benefits of the techniques much later."
+      },
+      "warnings": []
+    },
+    {
+      "id": "1a2b29c9",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Central Ideas and Details",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "The following text is adapted from María Cristina Mena’s 1914 short story “The Vine-Leaf.”"
+        },
+        {
+          "type": "text",
+          "text": "It is a saying in the capital of Mexico that Dr. Malsufrido carries more family secrets under his hat than any archbishop."
+        },
+        {
+          "type": "text",
+          "text": "The doctor’s hat is, appropriately enough, uncommonly capacious, rising very high, and sinking so low that it seems to be supported by his ears and eyebrows, and it has a furry look, as if it had been brushed the wrong way, which is perhaps what happens to it if it is ever brushed at all. When the doctor takes it off, the family secrets do not fly out like a flock of parrots, but remain nicely bottled up beneath a dome of old and highly polished ivory."
+        }
+      ],
+      "prompt": "Based on the text, how do people in the capital of Mexico most likely regard Dr. Malsufrido?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "Many have come to tolerate him despite his disheveled appearance."
+        },
+        {
+          "label": "B",
+          "text": "Few feel concerned that he will divulge their confidences."
+        },
+        {
+          "label": "C",
+          "text": "Some dislike how freely he discusses his own family."
+        },
+        {
+          "label": "D",
+          "text": "Most would be unimpressed by him were it not for his professional expertise."
+        }
+      ],
+      "correct": "B",
+      "rationale": "Choice B is the best answer. The text describes a saying in the capital that Malsufrido keeps more secrets than an archbishop. It also says that when he takes off his hat, “the family secrets do not fly out… but remain nicely bottled up,” suggesting that he will not betray his confidences.\n\nChoice A is incorrect. This choice doesn’t reflect the text. While his hat is large and appears to have been brushed in the wrong direction, Dr. Malsufrido does not seem to be regarded as ill-dressed or disheveled. Choice C is incorrect. This choice is the opposite of what the text says. The secrets of families (his and others’) remain “bottled up” in his head. Choice D is incorrect. This choice isn’t supported by the text. His professional expertise is not discussed in the passage.",
+      "explanations": {
+        "B": "Choice B is the best answer. The text describes a saying in the capital that Malsufrido keeps more secrets than an archbishop. It also says that when he takes off his hat, “the family secrets do not fly out… but remain nicely bottled up,” suggesting that he will not betray his confidences.",
+        "A": "Choice A is incorrect. This choice doesn’t reflect the text. While his hat is large and appears to have been brushed in the wrong direction, Dr. Malsufrido does not seem to be regarded as ill-dressed or disheveled.",
+        "C": "Choice C is incorrect. This choice is the opposite of what the text says. The secrets of families (his and others’) remain “bottled up” in his head.",
+        "D": "Choice D is incorrect. This choice isn’t supported by the text. His professional expertise is not discussed in the passage."
+      },
+      "warnings": []
+    },
+    {
+      "id": "71904085",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Command of Evidence",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "Linguist Deborah Tannen has cautioned against framing contentious issues in terms of two highly competitive perspectives, such as pro versus con. According to Tannen, this debate-driven approach can strip issues of their complexity and, when used in front of an audience, can be less informative than the presentation of multiple perspectives in a noncompetitive format. To test Tannen’s hypothesis, students conducted a study in which they showed participants one of three different versions of local news commentary about the same issue. Each version featured a debate between two commentators with opposing views, a panel of three commentators with various views, or a single commentator."
+        }
+      ],
+      "prompt": "Which finding from the students’ study, if true, would most strongly support Tannen’s hypothesis?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "On average, participants perceived commentators in the debate as more knowledgeable about the issue than commentators in the panel."
+        },
+        {
+          "label": "B",
+          "text": "On average, participants perceived commentators in the panel as more knowledgeable about the issue than the single commentator."
+        },
+        {
+          "label": "C",
+          "text": "On average, participants who watched the panel correctly answered more questions about the issue than those who watched the debate or the single commentator did."
+        },
+        {
+          "label": "D",
+          "text": "On average, participants who watched the single commentator correctly answered more questions about the issue than those who watched the debate did."
+        }
+      ],
+      "correct": "C",
+      "rationale": "Choice C is the best answer because it presents the finding that, if true, would most strongly support Tannen’s hypothesis. According to the text, Tannen’s hypothesis is that multiple perspectives presented in a noncompetitive format is more informative than a debate between opposing viewpoints is. If participants who saw a panel of three commentators with various views about an issue answered more questions about the issue correctly than did participants who saw a debate, that would support Tannen’s hypothesis since it would show that participants who heard multiple varied perspectives were better informed than were participants who heard a debate between opposing viewpoints.\n\nChoice A is incorrect because finding that participants perceived commentators in the debate as more knowledgeable than commentators in the panel is irrelevant to Tannen’s hypothesis, which is that presenting multiple perspectives on an issue is more informative to the audience than presenting opposing views of the issue is. Participants’ perception of how knowledgeable panelists are has no bearing on how much participants learn from the panelists. Choice B is incorrect because finding that participants perceived commentators in the panel as more knowledgeable than a single commentator is irrelevant to Tannen’s hypothesis, which is that presenting multiple perspectives on an issue is more informative to the audience than presenting opposing views of the issue is. Participants’ perception of how knowledgeable panelists are has no bearing on how much participants learn from the panelists, and Tannen’s hypothesis says nothing about how informative single commentators are. Choice D is incorrect because finding that participants who watched a single commentator answered more questions correctly than participants who watched the debate did wouldn’t be relevant to Tannen’s hypothesis, which is that hearing multiple varying perspectives is more informative than hearing a debate. Tannen’s hypothesis says nothing about how informative single commentators are.",
+      "explanations": {
+        "C": "Choice C is the best answer because it presents the finding that, if true, would most strongly support Tannen’s hypothesis. According to the text, Tannen’s hypothesis is that multiple perspectives presented in a noncompetitive format is more informative than a debate between opposing viewpoints is. If participants who saw a panel of three commentators with various views about an issue answered more questions about the issue correctly than did participants who saw a debate, that would support Tannen’s hypothesis since it would show that participants who heard multiple varied perspectives were better informed than were participants who heard a debate between opposing viewpoints.",
+        "A": "Choice A is incorrect because finding that participants perceived commentators in the debate as more knowledgeable than commentators in the panel is irrelevant to Tannen’s hypothesis, which is that presenting multiple perspectives on an issue is more informative to the audience than presenting opposing views of the issue is. Participants’ perception of how knowledgeable panelists are has no bearing on how much participants learn from the panelists.",
+        "B": "Choice B is incorrect because finding that participants perceived commentators in the panel as more knowledgeable than a single commentator is irrelevant to Tannen’s hypothesis, which is that presenting multiple perspectives on an issue is more informative to the audience than presenting opposing views of the issue is. Participants’ perception of how knowledgeable panelists are has no bearing on how much participants learn from the panelists, and Tannen’s hypothesis says nothing about how informative single commentators are.",
+        "D": "Choice D is incorrect because finding that participants who watched a single commentator answered more questions correctly than participants who watched the debate did wouldn’t be relevant to Tannen’s hypothesis, which is that hearing multiple varying perspectives is more informative than hearing a debate. Tannen’s hypothesis says nothing about how informative single commentators are."
+      },
+      "warnings": []
+    },
+    {
+      "id": "58817765",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Inferences",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "Some geologists have proposed designating the period from 1950 to the present as a new geological epoch (the Anthropocene) characterized by human impact on Earth, but they have struggled to identify reliable stratigraphic markers of the epoch’s onset. Inta Dimante-Deimantovica and a research team investigated whether the initial appearance of primary microplastics—invented and mass-produced for industrial and other purposes, beginning around the middle of the twentieth century—in sedimentary layers could serve this role. The researchers analyzed European lake sediment profiles from the late eighteenth century to the present. Microplastics were present in all layers, likely because certain microplastic shapes enabled rapid downward migration. The researchers therefore concluded that ______"
+        }
+      ],
+      "prompt": "Which choice most logically completes the text?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "the lowest sedimentary layer in which microplastics are found cannot be treated as indicative of the chronological beginning of the Anthropocene."
+        },
+        {
+          "label": "B",
+          "text": "the presence of microplastics in sediment dating to the late eighteenth century casts doubt on the appropriateness of designating 1950 as the onset of the Anthropocene."
+        },
+        {
+          "label": "C",
+          "text": "microplastics are not prevalent enough in sediment to serve as a reliable sign of the human impact characteristic of the Anthropocene."
+        },
+        {
+          "label": "D",
+          "text": "using the earliest presence of microplastics as a stratigraphic marker of the beginning of the Anthropocene is likely to be viable in some locations but is not viable in Europe."
+        }
+      ],
+      "correct": "A",
+      "rationale": "Choice A is the best answer because it most logically completes the text’s discussion of microplastics as a proposed stratigraphic marker for the onset of the Anthropocene. The text indicates that although primary microplastics (used for industrial and other purposes) were invented and mass-produced beginning only around the mid-twentieth century, researchers found microplastics throughout European lake sediment profiles dating from the late eighteenth century to the present. According to the text, microplastics were in all layers of sediment likely because microplastics of certain shapes can rapidly migrate downward—that is, they can move into sedimentary layers that predate their manufacture. Since it can’t be assumed that the date of a layer in which microplastics are found indicates when the microplastics were first deposited, it follows that the lowest sedimentary layer containing microplastics can’t be treated as indicative of the chronological beginning of the Anthropocene.\n\nChoice B is incorrect. The text explains that microplastics appeared in layers of sediment long predating 1950 likely because certain shapes allowed them to rapidly migrate downward—that is, the particles physically moved into older layers. This finding doesn’t cast doubt on the appropriateness of considering 1950 as the onset of the Anthropocene; it doesn’t suggest a flaw in thinking that humans’ impact on Earth shifted around 1950 but simply suggests that the position of microplastics in sediment isn’t useful as an indicator of such a shift. Choice C is incorrect because the issue presented in the text isn’t a lack of prevalence of microplastics (and though no quantity is indicated, microplastics were found across all the layers) but rather the inability to determine when microplastics were originally deposited, since the particles can migrate rapidly into older sediment layers. Choice D is incorrect because the text indicates that the likely cause of microplastics being present in all layers of the sediment profiles is a property of microplastic particles themselves (certain shapes allowing them to rapidly move downward into older layers), not a characteristic of European lake sediment or anything else specific to Europe. There’s no reason to think the issue of particle migration wouldn’t occur in other locations.",
+      "explanations": {
+        "A": "Choice A is the best answer because it most logically completes the text’s discussion of microplastics as a proposed stratigraphic marker for the onset of the Anthropocene. The text indicates that although primary microplastics (used for industrial and other purposes) were invented and mass-produced beginning only around the mid-twentieth century, researchers found microplastics throughout European lake sediment profiles dating from the late eighteenth century to the present. According to the text, microplastics were in all layers of sediment likely because microplastics of certain shapes can rapidly migrate downward—that is, they can move into sedimentary layers that predate their manufacture. Since it can’t be assumed that the date of a layer in which microplastics are found indicates when the microplastics were first deposited, it follows that the lowest sedimentary layer containing microplastics can’t be treated as indicative of the chronological beginning of the Anthropocene.",
+        "B": "Choice B is incorrect. The text explains that microplastics appeared in layers of sediment long predating 1950 likely because certain shapes allowed them to rapidly migrate downward—that is, the particles physically moved into older layers. This finding doesn’t cast doubt on the appropriateness of considering 1950 as the onset of the Anthropocene; it doesn’t suggest a flaw in thinking that humans’ impact on Earth shifted around 1950 but simply suggests that the position of microplastics in sediment isn’t useful as an indicator of such a shift.",
+        "C": "Choice C is incorrect because the issue presented in the text isn’t a lack of prevalence of microplastics (and though no quantity is indicated, microplastics were found across all the layers) but rather the inability to determine when microplastics were originally deposited, since the particles can migrate rapidly into older sediment layers.",
+        "D": "Choice D is incorrect because the text indicates that the likely cause of microplastics being present in all layers of the sediment profiles is a property of microplastic particles themselves (certain shapes allowing them to rapidly move downward into older layers), not a characteristic of European lake sediment or anything else specific to Europe. There’s no reason to think the issue of particle migration wouldn’t occur in other locations."
+      },
+      "warnings": []
+    },
+    {
+      "id": "04cbeca3",
+      "assessment": "SAT",
+      "test": "Reading and Writing",
+      "domain": "Information and Ideas",
+      "skill": "Command of Evidence",
+      "difficulty": "Hard",
+      "stem": [
+        {
+          "type": "text",
+          "text": "In 1534 CE, King Henry VIII of England split with the Catholic Church and declared himself head of the Church of England, in part because Pope Clement VII refused to annul his marriage to Catherine of Aragon. Two years later, Henry VIII introduced a policy titled the Dissolution of the Monasteries that by 1540 had resulted in the closure of all Catholic monasteries in England and the confiscation of their estates. Some historians assert that the enactment of the policy was primarily motivated by perceived financial opportunities."
+        }
+      ],
+      "prompt": "Which quotation from a scholarly article best supports the assertion of the historians mentioned in the text?",
+      "choices": [
+        {
+          "label": "A",
+          "text": "“At the time of the Dissolution of the Monasteries, about 2 percent of the adult male population of England were monks; by 1690, the proportion of the adult male population who were monks was less than 1 percent.”"
+        },
+        {
+          "label": "B",
+          "text": "“A contemporary description of the Dissolution of the Monasteries, Michael Sherbrook’s Falle of the Religious Howses, recounts witness testimony that monks were allowed to keep the contents of their cells and that the monastery timber was purchased by local yeomen.”"
+        },
+        {
+          "label": "C",
+          "text": "“In 1535, the year before enacting the Dissolution of the Monasteries, Henry commissioned a survey of the value of church holdings in England—the work, performed by sheriffs, bishops, and magistrates, began that January and was swiftly completed by the summer.”"
+        },
+        {
+          "label": "D",
+          "text": "“The October 1536 revolt known as the Pilgrimage of Grace had several economic motives: high food prices due to a poor harvest the prior year; the Dissolution of the Monasteries, which closed reliable sources of food and shelter for many; and rents and taxes throughout Northern England that were not merely high but predatory.”"
+        }
+      ],
+      "correct": "C",
+      "rationale": "Choice C is the best answer. The fact that Henry VIII commissioned a survey of church holdings just before enacting the Dissolution of the Monasteries suggests that he was interested in the potential profits from claiming their assets. This supports the historians’ assertion.\n\nChoice A is incorrect. This choice describes a potential effect of the Dissolution of the Monasteries. The decrease in the proportion of monks in England isn’t relevant to the question of Henry VIII’s motivations. Choice B is incorrect. Details about how the monks were treated during the dissolution don’t address Henry VIII’s motivations for enacting the policy in the first place. That the monks could keep the content of their cells (their rooms) and sell off the timber they’d harvested has no impact on the value of the monasteries’ estates—their land holdings. Choice D is incorrect. This choice mentions one impact that the Dissolution of the Monasteries contributed to, two years after it happened. But it doesn’t help explain why Henry VIII might have wanted to enact the policy in the first place.",
+      "explanations": {
+        "C": "Choice C is the best answer. The fact that Henry VIII commissioned a survey of church holdings just before enacting the Dissolution of the Monasteries suggests that he was interested in the potential profits from claiming their assets. This supports the historians’ assertion.",
+        "A": "Choice A is incorrect. This choice describes a potential effect of the Dissolution of the Monasteries. The decrease in the proportion of monks in England isn’t relevant to the question of Henry VIII’s motivations.",
+        "B": "Choice B is incorrect. Details about how the monks were treated during the dissolution don’t address Henry VIII’s motivations for enacting the policy in the first place. That the monks could keep the content of their cells (their rooms) and sell off the timber they’d harvested has no impact on the value of the monasteries’ estates—their land holdings.",
+        "D": "Choice D is incorrect. This choice mentions one impact that the Dissolution of the Monasteries contributed to, two years after it happened. But it doesn’t help explain why Henry VIII might have wanted to enact the policy in the first place."
+      },
+      "warnings": []
+    }
+  ]
+}
