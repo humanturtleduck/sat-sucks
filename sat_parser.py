@@ -1,14 +1,4 @@
-"""Parse SAT Suite Question Bank PDF exports into JSON.
-
-Library choice: pdfplumber. On the demo PDF, pypdf and pypdfium2 flatten the data table into
-plain lines; pdfplumber finds it as rows with a bounding box, exposes line geometry (used for
-paragraph detection) and can crop regions to PNG (via pypdfium2, which it already bundles).
-
-Non-text elements:
-  * tables  -> structured {"header", "rows", "caption"} blocks (rendered as real <table>)
-  * images / vector charts -> cropped to a PNG and referenced as {"type": "image", "src"}
-
-Usage: python sat_parser.py input.pdf output.json
+"""pdfplumber
 """
 import json, os, re, statistics, sys
 import pdfplumber
@@ -17,6 +7,7 @@ QID = re.compile(r"^Question ID:\s*(\w+)")
 SEC = re.compile(r"^(Question|Answer|Rationale)$")
 CORRECT = re.compile(r"^Correct Answer:\s*([A-D])")
 CHOICE = re.compile(r"^([A-D])\.\s+(.*)")
+STRUCT = re.compile(r"^(Question|Answer|Rationale|Correct Answer:|Question ID:|[A-D]\.\s)")
 ENDERS = (".", "?", "!", '"', "”", "’", ":", "_")
 
 
@@ -29,7 +20,6 @@ def _inside(b, o, pad=1):
 
 
 def _merge(boxes, pad=6):
-    """Union overlapping boxes so one chart made of many curves becomes one region."""
     boxes = [list(b) for b in boxes]
     again = True
     while again:
@@ -47,8 +37,26 @@ def _merge(boxes, pad=6):
     return boxes
 
 
+def _grow(f, rot, lines, padx=48, pady=30):
+    f, used = list(f), set()
+    cand = [(c, True) for c in rot] + [(l, False) for l in lines]
+    while True:
+        hit, E = False, (f[0] - padx, f[1] - pady, f[2] + padx, f[3] + pady)
+        for k, (o, is_rot) in enumerate(cand):
+            if k in used or o["x0"] > E[2] or o["x1"] < E[0] or o["top"] > E[3] or o["bottom"] < E[1]:
+                continue
+            if not is_rot:
+                t = _clean(o["text"])
+                if not t or len(t) > 45 or t.endswith((".", "?", "!")) or STRUCT.match(t):
+                    continue
+            used.add(k)
+            hit = True
+            f = [min(f[0], o["x0"]), min(f[1], o["top"]), max(f[2], o["x1"]), max(f[3], o["bottom"])]
+        if not hit:
+            return f
+
+
 def _join(lines):
-    """Rejoin hard-wrapped lines. Browser-printed PDFs only break at spaces or existing hyphens/dashes."""
     s = lines[0]
     for l in lines[1:]:
         s += l if s.endswith(("-", "—", "–")) else " " + l
@@ -56,7 +64,6 @@ def _join(lines):
 
 
 def _scan_page(page, n, assets, counter):
-    """Return [(kind, top, data)] for one page: meta / table / image / line."""
     items, boxes = [], []
     tables = page.find_tables()
     for t in tables:
@@ -67,19 +74,30 @@ def _scan_page(page, n, assets, counter):
             boxes.append(t.bbox)
             if len(rows) > 1:
                 items.append(("meta", t.bbox[1], {k.lower(): v for k, v in zip(rows[0], rows[1])}))
-        elif len(rows) > 1 and len(rows[0]) > 1 and not any(o is not t and _inside(t.bbox, o.bbox) for o in tables):
+        elif len(rows) > 1 and len(rows[0]) > 1 and not any(o is not t and _inside(t.bbox, o.bbox) for o in tables) \
+                and not any(_inside((o["x0"], o["top"], o["x1"], o["bottom"]), t.bbox, 2) for o in page.curves + page.images):
             boxes.append(t.bbox)
             items.append(("table", t.bbox[1], {"rows": rows}))
 
-    for f in _merge([(o["x0"], o["top"], o["x1"], o["bottom"]) for o in page.images + page.curves]):
-        if any(_inside(f, b) for b in boxes) or f[2] - f[0] < 20 or f[3] - f[1] < 20:
-            continue
+    # Figures: every graphic object (images, curves, lines, rects) outside tables is merged into regions,
+    # then each region grows to include its axis labels / legend so the chart is cropped whole.
+    gobj = [o for o in page.images + page.curves + page.lines + page.rects
+            if not any(_inside((o["x0"], o["top"], o["x1"], o["bottom"]), b, 2) for b in boxes)]
+    rot = [c for c in page.chars if not c.get("upright", True)]
+    upright = page.filter(lambda o: o.get("object_type") != "char" or o.get("upright", True))
+    lines = upright.extract_text_lines(return_chars=False)
+    for f in _merge([(o["x0"], o["top"], o["x1"], o["bottom"]) for o in gobj], pad=12):
+        inside = [o for o in gobj if _inside((o["x0"], o["top"], o["x1"], o["bottom"]), f, 2)]
+        if f[2] - f[0] < 20 or f[3] - f[1] < 20 or (
+                len(inside) < 5 and not any(o["object_type"] in ("image", "curve") for o in inside)):
+            continue  # a lone rule or border, not a figure
+        f = _grow(f, rot, lines)
         counter[0] += 1
         name = f"p{n}_fig{counter[0]}.png"
         os.makedirs(assets, exist_ok=True)
-        box = (max(f[0], 0), max(f[1], 0), min(f[2], page.width), min(f[3], page.height))
-        page.crop(box).to_image(resolution=150).save(os.path.join(assets, name))
-        boxes.append(f)
+        box = (max(f[0] - 4, 0), max(f[1] - 4, 0), min(f[2] + 4, page.width), min(f[3] + 4, page.height))
+        page.crop(box).to_image(resolution=170).save(os.path.join(assets, name))
+        boxes.append(box)
         items.append(("image", f[1], {"src": name}))
 
     def keep(o):  # drop characters that live inside a table or figure; they are handled above
@@ -96,8 +114,7 @@ def _scan_page(page, n, assets, counter):
 
 
 def _blocks(items, geo):
-    """Group lines into paragraphs (big top-to-top jump, or short sentence-ending line, = break).
-    Line bottoms are unreliable in these PDFs, so spacing is measured top-to-top."""
+    
     right, sep = geo
     out, para, prev = [], [], None
 
