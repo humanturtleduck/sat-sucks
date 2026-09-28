@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAT Practice</title>
+<style>
+:root{--ink:#1b1b1b;--mute:#5d6570;--line:#cfd6dd;--blue:#1554b0;--ok:#1a7f37;--okbg:#e8f5ec;--bad:#c62828;--badbg:#fdeaea}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:#fff;display:flex;flex-direction:column}
+[hidden]{display:none!important}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid #7aa7ff;outline-offset:2px}
+header,footer{display:flex;align-items:center;gap:16px;padding:10px 20px;flex-wrap:wrap}
+header{border-bottom:3px dashed var(--line)}
+footer{border-top:3px dashed var(--line);justify-content:space-between}
+h1{font-size:18px;margin:0}
+.grow{flex:1}
+.meta{display:flex;gap:16px;color:var(--mute);font-size:14px}
+.tg{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.pill{background:var(--blue);color:#fff;border:2px solid var(--blue);border-radius:999px;padding:7px 24px;font-weight:600}
+.pill.ghost{background:#fff;color:var(--blue)}
+.pill:disabled{opacity:.4;cursor:default}
+#upload{margin:48px auto;max-width:520px;padding:0 20px}
+.note{color:var(--mute);font-size:14px}.err{color:var(--bad)}
+.split{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0}
+.pane{overflow:auto;padding:28px 36px}
+.passage{font:17px/1.65 Georgia,"Noto Serif",serif;border-right:1px solid var(--line)}
+.passage p{margin:0 0 1em}
+.passage img{max-width:100%}
+table{border-collapse:collapse;margin:0 0 1em;font:15px system-ui,sans-serif}
+caption{font-weight:600;text-align:left;padding-bottom:6px}
+th,td{border:1px solid var(--line);padding:6px 12px;text-align:left}
+th{background:#f2f5f8}
+.blank{display:inline-block;width:5em;border-bottom:1.5px solid var(--ink);margin:0 2px}
+.qnum{display:inline-block;background:var(--ink);color:#fff;font-weight:700;padding:2px 12px;margin-bottom:14px}
+.prompt{font-weight:500;margin:0 0 20px}
+.opt{display:flex;gap:14px;align-items:flex-start;width:100%;text-align:left;background:#fff;color:inherit;border:1px solid var(--ink);border-radius:10px;padding:12px 14px;margin:0 0 12px}
+.opt:hover:not(:disabled){border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.opt:disabled{cursor:default}
+.key{flex:none;width:28px;height:28px;border:1.5px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:600}
+.txt{flex:1}.txt img{max-width:100%}
+.mark{font-weight:600;white-space:nowrap}
+.opt.sel{border-color:var(--blue);box-shadow:0 0 0 2px var(--blue)}
+.opt.sel .key{background:var(--blue);border-color:var(--blue);color:#fff}
+.opt.ok{border-color:var(--ok);background:var(--okbg);box-shadow:0 0 0 2px var(--ok)}
+.opt.ok .key{background:var(--ok);border-color:var(--ok);color:#fff}.opt.ok .mark{color:var(--ok)}
+.opt.bad{border-color:var(--bad);background:var(--badbg);box-shadow:0 0 0 2px var(--bad)}
+.opt.bad .key{background:var(--bad);border-color:var(--bad);color:#fff}.opt.bad .mark{color:var(--bad)}
+.fb{margin-top:8px;padding:12px 16px;border-left:4px solid;border-radius:4px}
+.fb.ok{border-color:var(--ok);background:var(--okbg)}.fb.bad{border-color:var(--bad);background:var(--badbg)}
+.fb p{margin:.6em 0 0}
+.map{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.map button{width:32px;height:32px;border:1px solid var(--ink);background:#fff;border-radius:4px;font-size:13px}
+.map .sel{background:#dde8fa;border-color:var(--blue)}
+.map .ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.map .bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.map .cur{box-shadow:0 0 0 3px #7aa7ff}
+dialog{border:1px solid var(--line);border-radius:12px;padding:24px;width:calc(100% - 32px);max-width:640px;max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 6px}
+.row{display:flex;justify-content:space-between;gap:12px;margin-top:16px}
+.big{font-weight:600}
+.stat{width:100%;font-size:14px}
+.stat th:not(:first-child),.stat td:not(:first-child){text-align:right}
+.stat td:last-child{min-width:110px}
+.bar{height:6px;background:#e6ebf0;border-radius:3px;margin-top:4px}
+.bar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+@media(max-width:800px){
+ .split{display:block;overflow:auto}
+ .pane{overflow:visible;padding:20px}
+ .passage{border-right:0;border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>SAT Practice</h1>
+  <div class="meta" id="meta"></div>
+  <div class="grow"></div>
+  <label class="tg"><input type="checkbox" id="instant" checked> Instant feedback</label>
+  <span id="score" aria-live="polite"></span>
+  <button class="pill ghost" id="statsbtn">Progress</button>
+  <button class="pill ghost" id="reset" hidden>Start over</button>
+  <button class="pill ghost" id="newfile" hidden>New file</button>
+</header>
+
+<main id="upload">
+  <h2>Load practice questions</h2>
+  <p>Choose a PDF exported from the SAT Suite Question Bank. Questions, choices and the answer key are read from the file.</p>
+  <p><input type="file" id="file" accept="application/pdf" aria-label="Question bank PDF"></p>
+  <p><button class="pill" id="sample">Use the sample set</button></p>
+  <p id="msg" class="note" role="status"></p>
+</main>
+
+<div class="split" id="quiz" hidden>
+  <section class="pane passage" id="passage" aria-label="Passage"></section>
+  <section class="pane" id="qpane" aria-label="Question"></section>
+</div>
+
+<footer id="foot" hidden>
+  <button class="pill ghost" id="back">Back</button>
+  <div class="map" id="map"></div>
+  <button class="pill" id="next">Next</button>
+  <button class="pill" id="submitall" hidden>Submit answers</button>
+</footer>
+
+<dialog id="stats" aria-labelledby="st-title">
+  <h2 id="st-title">Your progress</h2>
+  <div id="statsbody"></div>
+  <p class="note">Each question counts once, using your latest answer. Saved in this browser only.</p>
+  <div class="row"><button class="pill ghost" id="clearstats">Clear progress</button><button class="pill" id="closestats">Close</button></div>
+</dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+// All PDF-derived text goes in via textContent / text nodes (never innerHTML), so uploads can't inject markup.
+let S = { id: "", qs: [], i: 0, ans: {} };   // ans[qid] = { pick: "A", done: bool }
+
+const NOSERVER = "Can't reach the Flask server. Run \"python app.py\" in the terminal, then open http://127.0.0.1:5000 (not Live Server or the HTML file).";
+async function load(req) {
+  const m = $("#msg"); m.className = "note"; m.textContent = "Reading PDF…";
+  try {
+    const r = await req, txt = await r.text();
+    let j; try { j = JSON.parse(txt); } catch { throw new Error(NOSERVER); }
+    if (!r.ok) throw new Error(j.error || "Upload failed.");
+    if (!j.questions.length) throw new Error("No questions were found in this PDF.");
+    S = { id: j.id, qs: j.questions, i: 0, ans: {} };
+    m.textContent = "";
+    $("#upload").hidden = true;
+    for (const id of ["quiz", "foot", "reset", "newfile"]) $("#" + id).hidden = false;
+    render();
+  } catch (e) { m.className = "note err"; m.textContent = e instanceof TypeError ? NOSERVER : e.message; }
+}
+$("#file").onchange = e => { const f = e.target.files[0]; if (!f) return; const fd = new FormData(); fd.append("file", f); load(fetch("/api/upload", { method: "POST", body: fd })); };
+$("#sample").onclick = () => load(fetch("/api/sample"));
+$("#reset").onclick = () => { S.ans = {}; S.i = 0; render(); };
+$("#newfile").onclick = () => { for (const id of ["quiz", "foot", "reset", "newfile"]) $("#" + id).hidden = true; $("#upload").hidden = false; $("#file").value = ""; $("#meta").replaceChildren(); $("#score").textContent = ""; };
+$("#back").onclick = () => go(S.i - 1);
+$("#next").onclick = () => go(S.i + 1);
+
+function blank() { const s = el("span", "blank"); s.setAttribute("role", "img"); s.setAttribute("aria-label", "blank"); return s; }
+
+function block(b) {
+  if (b.type === "table") {
+    const t = el("table"), head = el("tr"), body = el("tbody");
+    if (b.caption) t.append(el("caption", "", b.caption));
+    b.header.forEach(c => head.append(el("th", "", c)));
+    const th = el("thead"); th.append(head); t.append(th);
+    b.rows.forEach(r => { const tr = el("tr"); r.forEach(c => tr.append(el("td", "", c))); body.append(tr); });
+    t.append(body);
+    const w = el("div"); w.style.overflowX = "auto"; w.append(t); return w;
+  }
+  if (b.type === "image") { const i = el("img"); i.src = `/assets/${S.id}/${b.src}`; i.alt = "Figure from the question"; return i; }
+  const p = el("p");
+  b.text.split(/(_{3,})/).forEach(s => p.append(/^_{3,}$/.test(s) ? blank() : document.createTextNode(s)));
+  return p;
+}
+
+function render() {
+  const q = S.qs[S.i], a = S.ans[q.id] || {}, done = !!a.done;
+  $("#meta").replaceChildren(...[q.skill, q.difficulty].filter(Boolean).map(t => el("span", "", t)));
+  $("#passage").replaceChildren(...q.stem.map(block));
+
+  const Q = $("#qpane"), g = el("div");
+  g.setAttribute("role", "radiogroup"); g.setAttribute("aria-label", "Answer choices");
+  q.choices.forEach(c => {
+    const isPick = a.pick === c.label, isKey = c.label === q.correct, b = el("button", "opt"), t = el("span", "txt", c.text);
+    b.type = "button"; b.setAttribute("role", "radio"); b.setAttribute("aria-checked", isPick);
+    if (done) { b.disabled = true; if (isKey) b.classList.add("ok"); else if (isPick) b.classList.add("bad"); }
+    else if (isPick) b.classList.add("sel");
+    if (c.image) { const im = el("img"); im.src = `/assets/${S.id}/${c.image}`; im.alt = `Choice ${c.label}`; t.append(el("br"), im); }
+    b.append(el("span", "key", c.label), t);
+    if (done && (isKey || isPick)) b.append(el("span", "mark", isKey ? "✓ Correct" : "✗ Your answer"));
+    b.onclick = () => pick(c.label);
+    g.append(b);
+  });
+  Q.replaceChildren(el("div", "qnum", S.i + 1), el("p", "prompt", q.prompt), g);
+
+  const left = S.qs.filter(x => !(S.ans[x.id] || {}).pick).length;
+  const pend = S.qs.some(x => { const y = S.ans[x.id]; return y && y.pick && !y.done; });
+  if (pend && left) Q.append(el("p", "note", `Feedback is off. Answer every question to unlock Submit answers (${left} left).`));
+  if (done) {
+    const ok = a.pick === q.correct, f = el("div", "fb " + (ok ? "ok" : "bad")), ex = q.explanations || {};
+    f.setAttribute("role", "status");
+    f.append(el("strong", "", ok ? "Correct." : `Incorrect. The correct answer is ${q.correct}.`));
+    [ok ? null : ex[a.pick], ex[q.correct] || q.rationale].filter(Boolean).forEach(t => f.append(el("p", "", t)));
+    Q.append(f);
+  }
+  if (q.warnings && q.warnings.length) Q.append(el("p", "note", "Parser note: " + q.warnings.join("; ")));
+
+  $("#map").replaceChildren(...S.qs.map((x, i) => {
+    const y = S.ans[x.id] || {}, b = el("button", "", i + 1);
+    b.type = "button"; b.setAttribute("aria-label", `Question ${i + 1}`);
+    if (y.done) b.className = y.pick === x.correct ? "ok" : "bad"; else if (y.pick) b.className = "sel";
+    if (i === S.i) { b.classList.add("cur"); b.setAttribute("aria-current", "step"); }
+    b.onclick = () => go(i);
+    return b;
+  }));
+  const fin = S.qs.filter(x => (S.ans[x.id] || {}).done), right = fin.filter(x => S.ans[x.id].pick === x.correct).length;
+  $("#score").textContent = fin.length ? `${right} of ${fin.length} correct` : "";
+  $("#back").disabled = S.i === 0; $("#next").disabled = S.i === S.qs.length - 1;
+  const ready = pend && !left;   // every question has an answer, none checked yet
+  $("#submitall").hidden = !ready; $("#next").hidden = ready;
+}
+
+// Instant mode: selecting an option locks in and shows feedback at once. Otherwise picks stay changeable;
+// once every question has an answer, "Submit answers" replaces Next and checks them all.
+function pick(l) {
+  const q = S.qs[S.i]; if ((S.ans[q.id] || {}).done) return;
+  const done = $("#instant").checked;
+  S.ans[q.id] = { pick: l, done };
+  if (done) record(q, l);
+  render();
+}
+function submitAll() {
+  S.qs.forEach(q => { const a = S.ans[q.id]; if (a && a.pick && !a.done) { a.done = true; record(q, a.pick); } });
+  render(); openStats();
+}
+$("#submitall").onclick = submitAll;
+
+// ---- Progress: saved in localStorage, one entry per question id (latest answer wins)
+const KEY = "satpractice.stats.v1", DIFFS = ["Easy", "Medium", "Hard"];
+const loadStats = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+function record(q, pick) {
+  const st = loadStats();
+  st[q.id] = { ok: pick === q.correct, difficulty: q.difficulty || "Unknown", skill: q.skill || "Unknown", domain: q.domain || "Unknown" };
+  try { localStorage.setItem(KEY, JSON.stringify(st)); } catch {}
+}
+function group(rows, f, order) {
+  const m = {}, tot = v => v.right + v.wrong;
+  rows.forEach(r => { const k = f(r); (m[k] = m[k] || { right: 0, wrong: 0 })[r.ok ? "right" : "wrong"]++; });
+  const keys = [...new Set([...(order || []), ...Object.keys(m).sort((a, b) => tot(m[b]) - tot(m[a]))])];
+  return keys.map(k => [k, m[k] || { right: 0, wrong: 0 }]);
+}
+function tbl(title, data) {
+  const w = el("div"), t = el("table", "stat"), h = el("tr");
+  w.append(el("h3", "", title));
+  ["", "Right", "Wrong", "Accuracy"].forEach(x => h.append(el("th", "", x))); t.append(h);
+  data.forEach(([k, v]) => {
+    const n = v.right + v.wrong, p = n ? Math.round(100 * v.right / n) : null;
+    const bar = el("div", "bar"), fill = el("i"), c = el("td"), tr = el("tr");
+    fill.style.width = (p || 0) + "%"; bar.append(fill);
+    c.append(el("span", "", p == null ? "—" : p + "%"), bar);
+    tr.append(el("td", "", k), el("td", "", v.right), el("td", "", v.wrong), c); t.append(tr);
+  });
+  w.append(t); return w;
+}
+function openStats() {
+  const rows = Object.values(loadStats()), b = $("#statsbody"), n = rows.length, R = rows.filter(r => r.ok).length;
+  b.replaceChildren();
+  if (S.qs.length) {
+    const fin = S.qs.filter(x => (S.ans[x.id] || {}).done), ok = fin.filter(x => S.ans[x.id].pick === x.correct).length;
+    b.append(el("p", "", `This set: ${ok} right, ${fin.length - ok} wrong, ${S.qs.length - fin.length} not checked yet.`));
+  }
+  b.append(el("p", "big", n ? `All time: ${R} right, ${n - R} wrong (${Math.round(100 * R / n)}% accuracy).` : "No answers saved yet. Check an answer and your results will show here."));
+  if (n) b.append(tbl("By difficulty", group(rows, r => r.difficulty, DIFFS)), tbl("By skill", group(rows, r => r.skill)), tbl("By domain", group(rows, r => r.domain)));
+  if (!$("#stats").open) $("#stats").showModal();
+}
+$("#statsbtn").onclick = openStats;
+$("#closestats").onclick = () => $("#stats").close();
+$("#clearstats").onclick = () => { if (confirm("Clear all saved progress in this browser?")) { try { localStorage.removeItem(KEY); } catch {} openStats(); } };
+function go(i) { S.i = Math.max(0, Math.min(S.qs.length - 1, i)); render(); $("#passage").scrollTop = 0; $("#qpane").scrollTop = 0; }
+
+addEventListener("keydown", e => {
+  if ($("#quiz").hidden || e.metaKey || e.ctrlKey || e.target.matches("input,textarea")) return;
+  const k = e.key.toLowerCase(), q = S.qs[S.i];
+  const n = k.length === 1 ? ("abcd".indexOf(k) >= 0 ? "abcd".indexOf(k) : "1234".indexOf(k)) : -1;
+  if (n >= 0 && q.choices[n]) pick(q.choices[n].label);
+  else if (k === "arrowright") go(S.i + 1);
+  else if (k === "arrowleft") go(S.i - 1);
+  else if (k === "enter" && e.target.tagName !== "BUTTON" && !$("#submitall").hidden) submitAll();
+});
+</script>
+</body>
+</html>
