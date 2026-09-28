@@ -22,7 +22,7 @@ h1{font-size:18px;margin:0}
 .pill{background:var(--blue);color:#fff;border:2px solid var(--blue);border-radius:999px;padding:7px 24px;font-weight:600}
 .pill.ghost{background:#fff;color:var(--blue)}
 .pill:disabled{opacity:.4;cursor:default}
-#upload{margin:48px auto;max-width:520px;padding:0 20px}
+#upload{margin:40px auto;max-width:720px;padding:0 20px}
 .note{color:var(--mute);font-size:14px}.err{color:var(--bad)}
 .split{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0}
 .pane{overflow:auto;padding:28px 36px}
@@ -67,6 +67,16 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 .stat td:last-child{min-width:110px}
 .bar{height:6px;background:#e6ebf0;border-radius:3px;margin-top:4px}
 .bar i{display:block;height:100%;background:var(--ok);border-radius:3px}
+.callout{border-left:4px solid var(--blue);background:#eef3fb;padding:10px 14px;border-radius:4px}
+.howto{margin:28px 0 0}.howto figcaption{font-weight:600;margin-bottom:8px}
+.howto img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px}
+.optrow{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px}
+.optrow .opt{flex:1;width:auto;margin:0}
+.optrow.cut .opt{opacity:.55}.optrow.cut .txt{text-decoration:line-through}
+.xo{flex:none;min-width:32px;height:32px;padding:0 8px;margin-top:8px;border:1px solid var(--mute);background:#fff;color:var(--mute);border-radius:999px;font-size:13px;font-weight:600}
+.xo[aria-pressed="false"]{text-decoration:line-through}
+.xo:hover:not(:disabled){border-color:var(--blue);color:var(--blue)}
+.xo:disabled{opacity:.35;cursor:default}
 @media(max-width:800px){
  .split{display:block;overflow:auto}
  .pane{overflow:visible;padding:20px}
@@ -88,10 +98,15 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 
 <main id="upload">
   <h2>Load practice questions</h2>
+  <p class="callout"><strong>English only, for now.</strong> This site supports SAT Reading and Writing questions. Math questions aren't supported yet.</p>
   <p>Choose a PDF exported from the SAT Suite Question Bank. Questions, choices and the answer key are read from the file.</p>
   <p><input type="file" id="file" accept="application/pdf" aria-label="Question bank PDF"></p>
   <p><button class="pill" id="sample">Use the sample set</button></p>
   <p id="msg" class="note" role="status"></p>
+  <figure class="howto">
+    <figcaption>How to export questions from the Question Bank</figcaption>
+    <img src="/pictures/howtoexport.png" alt="Steps for exporting questions from the SAT Suite Question Bank as a PDF" onerror="this.closest('figure').hidden=true">
+  </figure>
 </main>
 
 <div class="split" id="quiz" hidden>
@@ -117,26 +132,31 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 const $ = s => document.querySelector(s);
 const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
 // All PDF-derived text goes in via textContent / text nodes (never innerHTML), so uploads can't inject markup.
-let S = { id: "", qs: [], i: 0, ans: {} };   // ans[qid] = { pick: "A", done: bool }
+let S = { id: "", qs: [], i: 0, ans: {}, cross: {} };   // ans[qid] = { pick: "A", done: bool }
 
-const NOSERVER = "Can't reach the Flask server. Run \"python app.py\" in the terminal, then open http://127.0.0.1:5000 (not Live Server or the HTML file).";
+function noServer(st) {
+  const h = location.hostname, code = st ? ` (HTTP ${st})` : "";
+  if (h.endsWith("github.io")) return "GitHub Pages can't run the Python backend. Open the app on your Python host (Render, Railway, etc.) instead.";
+  if (h === "127.0.0.1" || h === "localhost" || h === "") return "Can't reach the Flask server. Run \"python app.py\" in the terminal, then open http://127.0.0.1:5000 (not Live Server or the HTML file).";
+  return "The server didn't return data" + code + ". If the host was idle it may still be waking up: wait about a minute and try again, then check the host's logs.";
+}
 async function load(req) {
   const m = $("#msg"); m.className = "note"; m.textContent = "Reading PDF…";
   try {
     const r = await req, txt = await r.text();
-    let j; try { j = JSON.parse(txt); } catch { throw new Error(NOSERVER); }
+    let j; try { j = JSON.parse(txt); } catch { throw new Error(noServer(r.status)); }
     if (!r.ok) throw new Error(j.error || "Upload failed.");
     if (!j.questions.length) throw new Error("No questions were found in this PDF.");
-    S = { id: j.id, qs: j.questions, i: 0, ans: {} };
+    S = { id: j.id, qs: j.questions, i: 0, ans: {}, cross: {} };
     m.textContent = "";
     $("#upload").hidden = true;
     for (const id of ["quiz", "foot", "reset", "newfile"]) $("#" + id).hidden = false;
     render();
-  } catch (e) { m.className = "note err"; m.textContent = e instanceof TypeError ? NOSERVER : e.message; }
+  } catch (e) { m.className = "note err"; m.textContent = e instanceof TypeError ? noServer() : e.message; }
 }
 $("#file").onchange = e => { const f = e.target.files[0]; if (!f) return; const fd = new FormData(); fd.append("file", f); load(fetch("/api/upload", { method: "POST", body: fd })); };
 $("#sample").onclick = () => load(fetch("/api/sample"));
-$("#reset").onclick = () => { S.ans = {}; S.i = 0; render(); };
+$("#reset").onclick = () => { S.ans = {}; S.cross = {}; S.i = 0; render(); };
 $("#newfile").onclick = () => { for (const id of ["quiz", "foot", "reset", "newfile"]) $("#" + id).hidden = true; $("#upload").hidden = false; $("#file").value = ""; $("#meta").replaceChildren(); $("#score").textContent = ""; };
 $("#back").onclick = () => go(S.i - 1);
 $("#next").onclick = () => go(S.i + 1);
@@ -165,17 +185,27 @@ function render() {
   $("#passage").replaceChildren(...q.stem.map(block));
 
   const Q = $("#qpane"), g = el("div");
-  g.setAttribute("role", "radiogroup"); g.setAttribute("aria-label", "Answer choices");
+  g.setAttribute("role", "group"); g.setAttribute("aria-label", "Answer choices");
   q.choices.forEach(c => {
     const isPick = a.pick === c.label, isKey = c.label === q.correct, b = el("button", "opt"), t = el("span", "txt", c.text);
-    b.type = "button"; b.setAttribute("role", "radio"); b.setAttribute("aria-checked", isPick);
+    b.type = "button"; b.setAttribute("aria-pressed", isPick);
     if (done) { b.disabled = true; if (isKey) b.classList.add("ok"); else if (isPick) b.classList.add("bad"); }
     else if (isPick) b.classList.add("sel");
     if (c.image) { const im = el("img"); im.src = `/assets/${S.id}/${c.image}`; im.alt = `Choice ${c.label}`; t.append(el("br"), im); }
     b.append(el("span", "key", c.label), t);
     if (done && (isKey || isPick)) b.append(el("span", "mark", isKey ? "✓ Correct" : "✗ Your answer"));
     b.onclick = () => pick(c.label);
-    g.append(b);
+    const cut = !done && !!(S.cross[q.id] || {})[c.label], row = el("div", "optrow" + (cut ? " cut" : ""));
+    row.append(b);
+    if (!done) {   // cross-out tool: eliminate a choice you've ruled out; picking it again restores it
+      const x = el("button", "xo", cut ? "Undo" : c.label);
+      x.type = "button"; x.disabled = isPick; x.setAttribute("aria-pressed", cut);
+      x.setAttribute("aria-label", (cut ? "Restore" : "Cross out") + " choice " + c.label);
+      x.title = isPick ? "Deselect this answer first" : cut ? "Restore this choice" : "Cross out this choice";
+      x.onclick = () => toggleCut(q.id, c.label);
+      row.append(x);
+    }
+    g.append(row);
   });
   Q.replaceChildren(el("div", "qnum", S.i + 1), el("p", "prompt", q.prompt), g);
 
@@ -208,8 +238,10 @@ function render() {
 
 // Instant mode: selecting an option locks in and shows feedback at once. Otherwise picks stay changeable;
 // once every question has an answer, "Submit answers" replaces Next and checks them all.
+function toggleCut(id, l) { const c = S.cross[id] = S.cross[id] || {}; if (c[l]) delete c[l]; else c[l] = true; render(); }
 function pick(l) {
   const q = S.qs[S.i]; if ((S.ans[q.id] || {}).done) return;
+  if (S.cross[q.id]) delete S.cross[q.id][l];
   const done = $("#instant").checked;
   S.ans[q.id] = { pick: l, done };
   if (done) record(q, l);

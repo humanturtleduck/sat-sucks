@@ -68,6 +68,14 @@ def sample():
         return jsonify(json.load(fh))
 
 
+@app.get("/pictures/<name>")
+def pictures(name):
+    for d in (os.path.join(ROOT, "pictures"), os.path.join(ROOT, "docs", "pictures")):
+        if os.path.isfile(os.path.join(d, name)):
+            return send_from_directory(d, name)
+    abort(404)
+
+
 @app.get("/assets/<sid>/<path:name>")
 def assets(sid, name):
     if not re.fullmatch(r"[0-9a-f]{12}|sample", sid):
