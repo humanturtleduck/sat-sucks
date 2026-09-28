@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SAT Practice</title>
+<title>SAT PDF Parser</title>
 <style>
 :root{--ink:#1b1b1b;--mute:#5d6570;--line:#cfd6dd;--blue:#1554b0;--ok:#1a7f37;--okbg:#e8f5ec;--bad:#c62828;--badbg:#fdeaea}
 *{box-sizing:border-box}
@@ -86,7 +86,7 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 </head>
 <body>
 <header>
-  <h1>SAT Practice</h1>
+  <h1>SAT PDF Parser</h1>
   <div class="meta" id="meta"></div>
   <div class="grow"></div>
   <label class="tg"><input type="checkbox" id="instant" checked> Instant feedback</label>
@@ -97,12 +97,16 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 </header>
 
 <main id="upload">
-  <p class="callout"><strong>English only</strong> The parser can not read math PDFs yet and to be honest, I don't know how to implement that</p>
+  <p class="callout">The parser can not read math PDFs yet and to be honest, I don't know how to implement that</p>
   <p><input type="file" id="file" accept="application/pdf" aria-label="Question bank PDF"></p>
-  <p><button class="pill" id="sample">Use the sample set</button></p>
+  <p><button id="sample">Use the sample set</button></p>
+  <p>This is a barebones site that converts PDFs into interactive questions. There is no saving mechanism or history saved on this site besides the cheaply implemented "Progress" tab that does virtually nothing. </p>
   <p id="msg" class="note" role="status"></p>
   <figure class="howto">
-    <figcaption>How to correctly export questions from the Question Bank</figcaption>
+    <figcaption>How to correctly export questions from the Question Bank.
+      <br>1. Go to <link>https://satsuiteeducatorquestionbank.collegeboard.org/digital/search</link>
+      <br>2. Export (With correct answers and explanations) and upload
+    </figcaption>
     <img src="/pictures/howtoexport.png">
   </figure>
 </main>
@@ -195,7 +199,7 @@ function render() {
     b.onclick = () => pick(c.label);
     const cut = !done && !!(S.cross[q.id] || {})[c.label], row = el("div", "optrow" + (cut ? " cut" : ""));
     row.append(b);
-    if (!done) {   // cross-out tool: eliminate a choice you've ruled out; picking it again restores it
+    if (!done) {  
       const x = el("button", "xo", cut ? "Undo" : c.label);
       x.type = "button"; x.disabled = isPick; x.setAttribute("aria-pressed", cut);
       x.setAttribute("aria-label", (cut ? "Restore" : "Cross out") + " choice " + c.label);
@@ -230,7 +234,7 @@ function render() {
   const fin = S.qs.filter(x => (S.ans[x.id] || {}).done), right = fin.filter(x => S.ans[x.id].pick === x.correct).length;
   $("#score").textContent = fin.length ? `${right} of ${fin.length} correct` : "";
   $("#back").disabled = S.i === 0; $("#next").disabled = S.i === S.qs.length - 1;
-  const ready = pend && !left;   // every question has an answer, none checked yet
+  const ready = pend && !left;  
   $("#submitall").hidden = !ready; $("#next").hidden = ready;
 }
 
@@ -249,7 +253,7 @@ function submitAll() {
 }
 $("#submitall").onclick = submitAll;
 
-// ---- Progress: saved in localStorage, one entry per question id (latest answer wins)
+
 const KEY = "satpractice.stats.v1", DIFFS = ["Easy", "Medium", "Hard"];
 const loadStats = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
 function record(q, pick) {
