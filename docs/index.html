@@ -97,15 +97,13 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 </header>
 
 <main id="upload">
-  <h2>Load practice questions</h2>
-  <p class="callout"><strong>English only, for now.</strong> This site supports SAT Reading and Writing questions. Math questions aren't supported yet.</p>
-  <p>Choose a PDF exported from the SAT Suite Question Bank. Questions, choices and the answer key are read from the file.</p>
+  <p class="callout"><strong>English only</strong> The parser can not read math PDFs yet and to be honest, I don't know how to implement that</p>
   <p><input type="file" id="file" accept="application/pdf" aria-label="Question bank PDF"></p>
   <p><button class="pill" id="sample">Use the sample set</button></p>
   <p id="msg" class="note" role="status"></p>
   <figure class="howto">
-    <figcaption>How to export questions from the Question Bank</figcaption>
-    <img src="/pictures/howtoexport.png" alt="Steps for exporting questions from the SAT Suite Question Bank as a PDF" onerror="this.closest('figure').hidden=true">
+    <figcaption>How to correctly export questions from the Question Bank</figcaption>
+    <img src="/pictures/howtoexport.png">
   </figure>
 </main>
 
@@ -124,7 +122,7 @@ dialog h2{margin:0 0 12px;font-size:20px}dialog h3{font-size:16px;margin:20px 0 
 <dialog id="stats" aria-labelledby="st-title">
   <h2 id="st-title">Your progress</h2>
   <div id="statsbody"></div>
-  <p class="note">Each question counts once, using your latest answer. Saved in this browser only.</p>
+  <p class="note">saved in browser cache i vibe coded this part i don't really know what is going on</p>
   <div class="row"><button class="pill ghost" id="clearstats">Clear progress</button><button class="pill" id="closestats">Close</button></div>
 </dialog>
 
@@ -236,8 +234,6 @@ function render() {
   $("#submitall").hidden = !ready; $("#next").hidden = ready;
 }
 
-// Instant mode: selecting an option locks in and shows feedback at once. Otherwise picks stay changeable;
-// once every question has an answer, "Submit answers" replaces Next and checks them all.
 function toggleCut(id, l) { const c = S.cross[id] = S.cross[id] || {}; if (c[l]) delete c[l]; else c[l] = true; render(); }
 function pick(l) {
   const q = S.qs[S.i]; if ((S.ans[q.id] || {}).done) return;
